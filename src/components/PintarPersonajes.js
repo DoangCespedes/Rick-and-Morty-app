@@ -1,4 +1,3 @@
-import { Link } from '@material-ui/core';
 import React, {useEffect, useState} from 'react';
 import Swal from "sweetalert2";
 import { Loading } from '../Loading';
@@ -12,11 +11,13 @@ export const PintarPersonajes = ({nombrePersonaje}) => {
       consumirApi(nombrePersonaje)
     
     }, [nombrePersonaje]);
+
     
 const consumirApi = async(nombre) => { 
     setLoading(true);
     try {
         const res = await fetch(`https://rickandmortyapi.com/api/character/?name=${nombre}&status=alive`)
+        
         if (!res.ok) {
             console.log(res);
             return Swal.fire({
@@ -42,13 +43,9 @@ const consumirApi = async(nombre) => {
     }
 
     return (
-        <div className="row mt-2">
+        <div className="row mt-2 ">
             {personaje.map((item) => (
-                <Personaje key={item.id} character={item} >
-                    <Link to={`/${item.id}`}>
-                            {item.id} - {item.title} - {item.image} 
-                    </Link>
-                </Personaje>
+                <Personaje key={item.id} character={item}/>
             ))}
         </div>
     );

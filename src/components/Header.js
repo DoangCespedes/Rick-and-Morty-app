@@ -1,7 +1,7 @@
 import { AppBar, Button, Toolbar, Typography } from '@material-ui/core'
 import React from 'react';
 import { makeStyles } from "@material-ui/core";
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const useStyle = makeStyles((theme) => ({
     offset: {
@@ -24,7 +24,8 @@ export const Header = () => {
         <AppBar position="fixed" color="primary">
             <Toolbar>
                 <Typography className={classes.title} variant="h6">Rick-and-Morty-app</Typography>
-                <NavLink to='/'><Button mx={2} color="inherit" variant="outlined" size="small">Inicio</Button></NavLink>
+                <Link to='/'><Button mx={2} color="inherit" variant="outlined" size="small">Inicio</Button></Link>
+                <Link to='/Its'><Button mx={2} color="inherit" variant="outlined" size="small">Que es?</Button></Link>
             </Toolbar>
       </AppBar>
       <div className={classes.offset}></div>
